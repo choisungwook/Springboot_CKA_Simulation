@@ -38,3 +38,6 @@ out/
 
 ### NPM ###
 src/main/resources/node_modules/*
+
+### webpack ###
+src/main/resources/dist/*
