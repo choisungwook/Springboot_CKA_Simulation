@@ -15,7 +15,7 @@ public class WebsocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(webSocketHandler, "/ssh")
+        registry.addHandler(webSocketHandler, "/ws")
                 .addInterceptors(new WebsockerInterceptor())
                 .setAllowedOrigins("*");
     }
