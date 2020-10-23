@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;
-import ssh2.springboot_ssh_client.sshclient.SSHClientHandlerImpl;
 
 @Component
 @RequiredArgsConstructor
