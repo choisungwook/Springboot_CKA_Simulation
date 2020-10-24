@@ -13,8 +13,8 @@ import ssh2.springboot_ssh_client.question.QuestionRepository;
 public class Question_rest_service {
     private final QuestionRepository questionRepository;
 
-    public Response_findById_question_dto findById(Request_findById_question_dto request){
-        QuestionDomain find_question = questionRepository.findById(request.getId())
+    public Response_findById_question_dto findById(Long id){
+        QuestionDomain find_question = questionRepository.findById(id)
                 .orElseThrow(
                         () -> new IllegalStateException("존재하지 않은 Id")
                 );
