@@ -10,7 +10,7 @@ import ssh2.springboot_ssh_client.question.service.Question_rest_service;
 
 @RestController
 @RequiredArgsConstructor
-public class QuestionController {
+public class Question_APIController {
     private final Question_rest_service question_rest_service;
 
     @GetMapping("/api/v1/question")
