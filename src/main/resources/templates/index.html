@@ -14,6 +14,7 @@
             <header class="left-header">
                 <button>이전문제</button>
                 <select th:fields="*{questions}">
+                    <option th:text="문제선택"></option>
                     <option th:each="question: ${questions}"
                             th:value="${question.id}"
                             th:text="|${question.id}번문제|"></option>
