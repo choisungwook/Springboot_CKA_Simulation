@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import ssh2.springboot_ssh_client.controller.question.dto.Request_create_question_dto;
+import ssh2.springboot_ssh_client.controller.question.dto.Request_findAll_question_dto;
 import ssh2.springboot_ssh_client.controller.question.dto.Response_findById_question_dto;
 import ssh2.springboot_ssh_client.question.QuestionDomain;
 import ssh2.springboot_ssh_client.question.QuestionRepository;
+
+import java.util.List;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -18,7 +21,7 @@ public class Question_rest_serviceTest {
     @Autowired QuestionRepository questionRepository;
 
     @Test
-    public void 단일문제조회(){
+    public void 단일문제조회_restAPI(){
         //given
         Request_create_question_dto question_dto1 = Request_create_question_dto.builder()
                 .content("test content")
@@ -43,6 +46,14 @@ public class Question_rest_serviceTest {
 
         create_question(question_dto1);
         create_question(question_dto2);
+    }
+
+    @Test
+    public void 모든문제조회(){
+        List<Request_findAll_question_dto> all = question_rest_service.findAll();
+        System.out.println("===================모든문제조회 Test=======================");
+        all.stream()
+                .forEach(dto -> System.out.println(dto.getContent()));
     }
 
     /***
