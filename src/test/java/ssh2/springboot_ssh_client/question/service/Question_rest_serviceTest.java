@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import ssh2.springboot_ssh_client.controller.question.dto.Request_create_question_dto;
+import ssh2.springboot_ssh_client.controller.question.dto.Response_findById_question_dto;
 import ssh2.springboot_ssh_client.question.QuestionDomain;
 import ssh2.springboot_ssh_client.question.QuestionRepository;
 
@@ -18,7 +19,17 @@ public class Question_rest_serviceTest {
 
     @Test
     public void 단일문제조회(){
+        //given
+        Request_create_question_dto question_dto1 = Request_create_question_dto.builder()
+                .content("test content")
+                .build();
+        QuestionDomain new_question = create_question(question_dto1);
 
+        //when
+        Response_findById_question_dto find_questionId = question_rest_service.findById(new_question.getId());
+
+        //then
+        Assertions.assertThat(find_questionId.getId()).isEqualTo(new_question.getId());
     }
 
     @Test
