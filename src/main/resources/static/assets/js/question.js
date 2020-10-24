@@ -25,3 +25,20 @@ let question_selectbox = document.querySelector("#question_select");
         }).fail(function(){
         });
 });
+
+// 채점
+let grading_btn = document.querySelector("#grading");
+grading_btn.addEventListener("click", function(event){
+    let question_selectbox = document.getElementById("question_select");
+    let question_number = question_selectbox.options[question_selectbox.selectedIndex].value;
+
+    $.ajax({
+        type: 'GET',
+        url: '/api/v1/question/marking/' + question_number,
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+    }).done(function(data) {
+        console.log(data);
+    }).fail(function(){
+    });
+});
