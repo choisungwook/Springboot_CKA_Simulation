@@ -12,22 +12,20 @@
     <div class="content">
         <section class="left">
             <header class="left-header">
-                <button>이전문제</button>
-                <select th:fields="*{questions}">
-                    <option th:text="문제선택"></option>
+                <select id="question_select" th:fields="*{questions}">
+                    <option th:text="문제선택" disabled></option>
                     <option th:each="question: ${questions}"
                             th:value="${question.id}"
                             th:text="|${question.id}번문제|"></option>
                 </select>
-                <button>다음문제</button>
             </header>
             <div class="left-content">
                 <div class="question">
                     <h1>문제</h1>
-                    <p>hello world</p>
+                    <p id="question_content"></p>
                     <h1>힌트</h1>
                     <button>힌트보기</button>
-                    <p>hello world(힌트버튼을 클릭하면 등장)</p>
+                    <p>(힌트버튼을 클릭하면 등장)</p>
                 </div>
                 <div class="score">
                     <button>채점하기</button>
@@ -42,5 +40,6 @@
     
     <script th:src=@{/assets/js/jquery-3.5.1.min.js}></script>
     <script th:src=@{/assets/js/main.js}></script>
+    <script th:src=@{/assets/js/question.js}></script>
 </body>
 </html>
