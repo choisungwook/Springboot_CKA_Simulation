@@ -17,8 +17,14 @@ public class QuestionDomain {
 
     private String content;
 
+    private String marking_command;
+
+    private String answer;
+
     @Builder
-    public QuestionDomain(String content) {
+    public QuestionDomain(String content, String marking_command, String answer) {
         this.content = content;
+        this.marking_command = marking_command;
+        this.answer = answer;
     }
 }
