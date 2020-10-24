@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class QuestionServiceTest {
@@ -22,6 +24,14 @@ public class QuestionServiceTest {
         QuestionDomain question5 = create_question("555");
     }
 
+    @Test
+    public void 모든문제조회(){
+        List<QuestionDomain> All_question = questionService.findAll();
+        All_question.stream()
+                .forEach(question -> System.out.println(question.getContent()));
+
+    }
+    
     /***
      * 문제 생성
      * @param content
@@ -42,4 +52,5 @@ public class QuestionServiceTest {
 
         return new_question;
     }
+    
 }
