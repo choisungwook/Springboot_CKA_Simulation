@@ -1,4 +1,4 @@
-package ssh2.springboot_ssh_client.question;
+package ssh2.springboot_ssh_client.question.service;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import ssh2.springboot_ssh_client.question.service.Question_general_Service;
+import ssh2.springboot_ssh_client.question.QuestionDomain;
 
 import java.util.List;
 
