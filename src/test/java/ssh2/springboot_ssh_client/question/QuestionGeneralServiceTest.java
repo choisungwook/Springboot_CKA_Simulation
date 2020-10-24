@@ -6,13 +6,15 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import ssh2.springboot_ssh_client.question.service.Question_general_Service;
 
 import java.util.List;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class QuestionServiceTest {
-    @Autowired QuestionService questionService;
+public class QuestionGeneralServiceTest {
+    @Autowired
+    Question_general_Service questionGeneralService;
 
     @Test
     public void 문제생성(){
@@ -26,7 +28,7 @@ public class QuestionServiceTest {
 
     @Test
     public void 모든문제조회(){
-        List<QuestionDomain> All_question = questionService.findAll();
+        List<QuestionDomain> All_question = questionGeneralService.findAll();
         All_question.stream()
                 .forEach(question -> System.out.println(question.getContent()));
 
@@ -43,10 +45,10 @@ public class QuestionServiceTest {
                 .content(content)
                 .build();
         //when
-        Long saveId = questionService.save(new_question);
+        Long saveId = questionGeneralService.save(new_question);
 
         //then
-        QuestionDomain find_question = questionService.findById(saveId);
+        QuestionDomain find_question = questionGeneralService.findById(saveId);
         Assertions.assertThat(find_question.getId()).isEqualTo(new_question.getId());
         Assertions.assertThat(find_question.getContent()).isEqualTo(new_question.getContent());
 

@@ -1,13 +1,15 @@
-package ssh2.springboot_ssh_client.question;
+package ssh2.springboot_ssh_client.question.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ssh2.springboot_ssh_client.question.QuestionDomain;
+import ssh2.springboot_ssh_client.question.QuestionRepository;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class QuestionService {
+public class Question_general_Service {
     private final QuestionRepository questionRepository;
 
     public Long save(QuestionDomain requestDomain){

@@ -3,6 +3,8 @@ package ssh2.springboot_ssh_client.question;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import ssh2.springboot_ssh_client.question.service.Question_general_Service;
+
 import javax.annotation.PostConstruct;
 
 @Component
@@ -20,15 +22,15 @@ public class InitalizeDB {
     @Component
     @RequiredArgsConstructor
     static class Initalize_Service{
-        private final QuestionService questionService;
+        private final Question_general_Service questionGeneralService;
 
 
         /***
          * 문제 생성
          */
         public void run(){
-            questionService.save(Create_question1());
-            questionService.save(Create_question2());
+            questionGeneralService.save(Create_question1());
+            questionGeneralService.save(Create_question2());
         }
 
     }
