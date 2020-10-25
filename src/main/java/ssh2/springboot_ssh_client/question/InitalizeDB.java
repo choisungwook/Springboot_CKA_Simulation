@@ -41,7 +41,7 @@ public class InitalizeDB {
      */
     private static QuestionDomain Create_question1(){
         String question = "pod를 생성하세요<br>pod 이름: test<br>image:nginx";
-        QuestionDomain new_question = Create_question(question);
+        QuestionDomain new_question = Create_question(question, "kubectl get po -o json | jq -r '.items[]  | [.metadata.name, .status.phase] | @tsv' | grep test | grep Running");
 
         return new_question;
     }
@@ -51,7 +51,7 @@ public class InitalizeDB {
      * @return
      */
     private static QuestionDomain Create_question2(){
-        QuestionDomain new_question = Create_question("Create service");
+        QuestionDomain new_question = Create_question("Create service", "미정");
 
         return new_question;
     }
@@ -61,9 +61,10 @@ public class InitalizeDB {
      * @param
      * @return
      */
-    private static QuestionDomain Create_question(String question){
+    private static QuestionDomain Create_question(String question, String marking_command){
         QuestionDomain new_question = QuestionDomain.builder()
                 .question(question)
+                .marking_command(marking_command)
                 .build();
 
         return new_question;
