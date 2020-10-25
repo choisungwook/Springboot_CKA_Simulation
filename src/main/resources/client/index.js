@@ -1,10 +1,10 @@
 import { Terminal } from 'xterm';
 import { AttachAddon } from 'xterm-addon-attach';
+import { FitAddon } from 'xterm-addon-fit';
 
-let connected = false;
 let websock = null;
     
-const term = new Terminal();
+let term = new Terminal();
 term.open(document.getElementById('xterm-container'));
 
 let btn = document.querySelector("#connect_btn");
@@ -18,9 +18,13 @@ btn.addEventListener('click', function(event){
 
         // Attach the socket to term
         websock.onopen = function() {
+            const fitAddon = new FitAddon();
             const attachAddon = new AttachAddon(websock);
+
+            term.loadAddon(fitAddon);
             term.loadAddon(attachAddon);
-            connected = true;
+
+            fitAddon.fit();
         };
 
         websock.onerror = function(e) {
