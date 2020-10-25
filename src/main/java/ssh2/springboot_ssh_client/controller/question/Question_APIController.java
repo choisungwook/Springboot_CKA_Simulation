@@ -43,7 +43,7 @@ public class Question_APIController {
         if(results.isEmpty()){
             answer = "incorrect";
         }else{
-            answer = "corret";
+            answer = "correct";
         }
 
         return Response_marking_question_dto.builder()
