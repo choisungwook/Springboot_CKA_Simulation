@@ -1,6 +1,7 @@
 package ssh2.springboot_ssh_client.controller.question;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import ssh2.springboot_ssh_client.sshclient.SshClientHandler;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
 public class Question_APIController {
     private final Question_rest_service question_rest_service;
     private final Question_general_Service question_general_service;
@@ -34,18 +36,19 @@ public class Question_APIController {
         String answer = "";
 
         sshClientHandler.Init();
-        String results = sshClientHandler.send_command("ls");
-//        sshClientHandler.send_command(find_question.getMarking_command());
-//        if(results.equals(find_question.getAnswer())){
-//            answer = "정답";
-//        }else{
-//            answer = "틀림";
-//        }
-
+        String results = sshClientHandler.send_command(find_question.getMarking_command());
+        log.info("채점 명령어 실행 결과: " + results);
         sshClientHandler.disconnect();
 
+        if(results.isEmpty()){
+            answer = "incorrect";
+        }else{
+            answer = "corret";
+        }
+
         return Response_marking_question_dto.builder()
-                .results(results)
+                .results(answer)
                 .build();
     }
+
 }

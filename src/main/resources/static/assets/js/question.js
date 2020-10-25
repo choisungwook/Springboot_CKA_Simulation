@@ -38,7 +38,7 @@ grading_btn.addEventListener("click", function(event){
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
     }).done(function(data) {
-        console.log(data);
+        console.log(data['results']);
     }).fail(function(){
     });
 });
