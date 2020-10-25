@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+        @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+    </style>
     <title>Document</title>
     <link th:href="@{/assets/css/xterm.css}" rel="stylesheet">
     <link th:href="@{/assets/css/style.css}" rel="stylesheet">
@@ -29,7 +33,7 @@
                 </header>
                 <div class="left-content">
                     <div class="question">
-                        <h1>문제</h1>
+                        <h1 id="question_header" class="hanna">문제</h1>
                         <p id="question_content"></p>                        
                     </div>
                     <div class="score">
