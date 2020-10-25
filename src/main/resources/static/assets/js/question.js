@@ -6,7 +6,7 @@ window.onload=function(){
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
     }).done(function(data) {
-        document.getElementById("question_content").innerHTML = data['content'];
+        document.getElementById("question_content").innerHTML = data['question'];
     }).fail(function(){
     });
 }
@@ -21,7 +21,7 @@ let question_selectbox = document.querySelector("#question_select");
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
         }).done(function(data) {
-            document.getElementById("question_content").innerHTML = data['content'];
+            document.getElementById("question_content").innerHTML = data['question'];
         }).fail(function(){
         });
 });
