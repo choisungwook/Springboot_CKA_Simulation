@@ -38,7 +38,14 @@ grading_btn.addEventListener("click", function(event){
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
     }).done(function(data) {
-        console.log(data['results']);
+        let grading_results = document.getElementById('grading_results');
+        
+        if(data['results'] == "correct"){
+            grading_results.innerHTML = "정답";
+        }else{
+            grading_results.innerHTML = "오답";
+        }
+        
     }).fail(function(){
     });
 });

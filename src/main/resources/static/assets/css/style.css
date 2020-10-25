@@ -43,3 +43,7 @@ a{
     grid-template-columns: 20% auto;
     background-color: black;
 }
+
+#grading_results {
+    color: red;
+}
