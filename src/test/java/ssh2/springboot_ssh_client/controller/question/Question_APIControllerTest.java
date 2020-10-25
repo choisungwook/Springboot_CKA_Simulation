@@ -57,6 +57,20 @@ public class Question_APIControllerTest {
         Assertions.assertThat(responseBody.get("question")).isEqualTo(new_question.getQuestion());
     }
 
+    @Test
+    public void 문제채점() throws JSONException {
+        //given
+        int question_number = 1;
+
+        String url = "http://localhost:" + port + "api/v1/question/marking/" + question_number;
+
+        //when
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+        //then
+        // 응답코드
+        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    }
 
     /***
      * 문제 생성

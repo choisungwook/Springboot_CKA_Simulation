@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public class SSHConnectionInfo {
-    private String user = "test";
+    private String user = "vagrant";
     private String host = "127.0.0.1";
-    private String password = "toor";
-    private int port = 3333;
+    private String password = "vagrant";
+    private int port = 4444;
 }
