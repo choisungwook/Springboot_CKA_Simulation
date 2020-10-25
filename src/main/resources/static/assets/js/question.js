@@ -21,6 +21,10 @@ let question_selectbox = document.querySelector("#question_select");
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
         }).done(function(data) {
+            // 채점결과 삭제
+            let grading_results = document.getElementById('grading_results');
+            grading_results.innerHTML = "";
+
             document.getElementById("question_content").innerHTML = data['question'];
         }).fail(function(){
         });
