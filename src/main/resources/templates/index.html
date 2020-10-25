@@ -9,40 +9,37 @@
     <link th:href="@{/assets/css/style.css}" rel="stylesheet">
 </head>
 <body>
-    <div class="connect_websocket">
-        <label for="host">host</label>
-        <input type="text" id="host">
-        <label for="port">port</label>
-        <input type="text" id="port">
-        <button id="connect_btn">연결</button>        
-    </div>
-    <div class="content">
-        <section class="left">
-            <header class="left-header">
-                <select id="question_select" th:fields="*{questions}">
-                    <option th:text="문제선택" disabled></option>
-                    <option th:each="question: ${questions}"
-                            th:value="${question.id}"
-                            th:text="|${question.id}번문제|"></option>
-                </select>
-            </header>
-            <div class="left-content">
-                <div class="question">
-                    <h1>문제</h1>
-                    <p id="question_content"></p>
-                    <h1>힌트</h1>
-                    <button>힌트보기</button>
-                    <p>(힌트버튼을 클릭하면 등장)</p>
+    <div class="container">
+        <div aria-label="input_websocket_info">
+            <label for="host">host</label>
+            <input type="text" id="host">
+            <label for="port">port</label>
+            <input type="text" id="port">
+            <button id="connect_btn">연결</button>        
+        </div>
+        <div class="content">
+            <section class="left">
+                <header class="left-header">
+                    <select id="question_select" th:fields="*{questions}">
+                        <option th:text="문제선택" disabled></option>
+                        <option th:each="question: ${questions}"
+                                th:value="${question.id}"
+                                th:text="|${question.id}번문제|"></option>
+                    </select>
+                </header>
+                <div class="left-content">
+                    <div class="question">
+                        <h1>문제</h1>
+                        <p id="question_content"></p>                        
+                    </div>
+                    <div class="score">
+                        <button id="grading">채점하기</button>
+                        <strong>채점결과</strong>
+                    </div>
                 </div>
-                <div class="score">
-                    <button id="grading">채점하기</button>
-                    <strong>채점결과</strong>
-                </div>
-            </div>
-        </section>
-        <section class="right">
+            </section>
             <div id="xterm-container"></div>
-        </section>
+        </div>
     </div>
     
     <script th:src=@{/assets/js/jquery-3.5.1.min.js}></script>
