@@ -36,7 +36,7 @@ public class Question_APIControllerTest {
     public void 문제조회() throws JSONException {
         //given
         Request_create_question_dto question_dto1 = Request_create_question_dto.builder()
-                .content("111")
+                .question("111")
                 .build();
         QuestionDomain new_question = create_question(question_dto1);
 
@@ -54,7 +54,7 @@ public class Question_APIControllerTest {
 
         long respone_id = Long.parseLong(String.valueOf(responseBody.get("id")));
         Assertions.assertThat(respone_id).isEqualTo(new_question.getId());
-        Assertions.assertThat(responseBody.get("content")).isEqualTo(new_question.getContent());
+        Assertions.assertThat(responseBody.get("question")).isEqualTo(new_question.getQuestion());
     }
 
 
@@ -75,7 +75,7 @@ public class Question_APIControllerTest {
                 .orElseThrow(
                         () -> new IllegalStateException("존재하지 않은 Id")
                 );
-        Assertions.assertThat(find_question.getContent()).isEqualTo(new_question.getContent());
+        Assertions.assertThat(find_question.getQuestion()).isEqualTo(new_question.getQuestion());
 
         return find_question;
     }

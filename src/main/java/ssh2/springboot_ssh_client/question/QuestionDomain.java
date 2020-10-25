@@ -15,15 +15,15 @@ public class QuestionDomain {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String content;
+    private String question;
 
     private String marking_command;
 
     private String answer;
 
     @Builder
-    public QuestionDomain(String content, String marking_command, String answer) {
-        this.content = content;
+    public QuestionDomain(String question, String marking_command, String answer) {
+        this.question = question;
         this.marking_command = marking_command;
         this.answer = answer;
     }

@@ -30,7 +30,7 @@ public class QuestionGeneralServiceTest {
     public void 모든문제조회(){
         List<QuestionDomain> All_question = questionGeneralService.findAll();
         All_question.stream()
-                .forEach(question -> System.out.println(question.getContent()));
+                .forEach(question -> System.out.println(question.getQuestion()));
 
     }
     
@@ -42,7 +42,7 @@ public class QuestionGeneralServiceTest {
     private QuestionDomain create_question(String content){
         //given
         QuestionDomain new_question = QuestionDomain.builder()
-                .content(content)
+                .question(content)
                 .build();
         //when
         Long saveId = questionGeneralService.save(new_question);
@@ -50,7 +50,7 @@ public class QuestionGeneralServiceTest {
         //then
         QuestionDomain find_question = questionGeneralService.findById(saveId);
         Assertions.assertThat(find_question.getId()).isEqualTo(new_question.getId());
-        Assertions.assertThat(find_question.getContent()).isEqualTo(new_question.getContent());
+        Assertions.assertThat(find_question.getQuestion()).isEqualTo(new_question.getQuestion());
 
         return new_question;
     }

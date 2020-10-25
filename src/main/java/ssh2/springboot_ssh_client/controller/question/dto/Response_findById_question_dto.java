@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Response_findById_question_dto {
     private Long id;
-    private String content;
+    private String question;
 
     @Builder
-    public Response_findById_question_dto(Long id, String content) {
+    public Response_findById_question_dto(Long id, String question) {
         this.id = id;
-        this.content = content;
+        this.question = question;
     }
 }

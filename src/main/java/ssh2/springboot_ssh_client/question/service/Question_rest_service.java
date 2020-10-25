@@ -24,7 +24,7 @@ public class Question_rest_service {
 
         return Response_findById_question_dto.builder()
                 .id(find_question.getId())
-                .content(find_question.getContent())
+                .question(find_question.getQuestion())
                 .build();
 
     }
@@ -40,7 +40,7 @@ public class Question_rest_service {
         List<Request_findAll_question_dto> dtos = all_questions.stream()
                 .map(question -> Request_findAll_question_dto.builder()
                         .id(question.getId())
-                        .content(question.getContent())
+                        .question(question.getQuestion())
                         .build())
                 .collect(Collectors.toList());
 

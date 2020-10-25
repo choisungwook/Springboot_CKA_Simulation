@@ -24,7 +24,7 @@ public class Question_rest_serviceTest {
     public void 단일문제조회_restAPI(){
         //given
         Request_create_question_dto question_dto1 = Request_create_question_dto.builder()
-                .content("test content")
+                .question("test content")
                 .build();
         QuestionDomain new_question = create_question(question_dto1);
 
@@ -38,10 +38,10 @@ public class Question_rest_serviceTest {
     @Test
     public void 문제생성(){
         Request_create_question_dto question_dto1 = Request_create_question_dto.builder()
-                .content("111")
+                .question("111")
                 .build();
         Request_create_question_dto question_dto2 = Request_create_question_dto.builder()
-                .content("222")
+                .question("222")
                 .build();
 
         create_question(question_dto1);
@@ -53,7 +53,7 @@ public class Question_rest_serviceTest {
         List<Request_findAll_question_dto> all = question_rest_service.findAll();
         System.out.println("===================모든문제조회 Test=======================");
         all.stream()
-                .forEach(dto -> System.out.println(dto.getContent()));
+                .forEach(dto -> System.out.println(dto.getQuestion()));
     }
 
     /***
@@ -73,7 +73,7 @@ public class Question_rest_serviceTest {
                 .orElseThrow(
                         () -> new IllegalStateException("존재하지 않은 Id")
                 );
-        Assertions.assertThat(find_question.getContent()).isEqualTo(new_question.getContent());
+        Assertions.assertThat(find_question.getQuestion()).isEqualTo(new_question.getQuestion());
 
         return find_question;
     }

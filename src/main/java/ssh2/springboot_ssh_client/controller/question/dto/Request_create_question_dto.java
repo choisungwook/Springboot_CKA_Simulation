@@ -10,16 +10,16 @@ import ssh2.springboot_ssh_client.question.QuestionDomain;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Request_create_question_dto {
-    private String content;
+    private String question;
 
     @Builder
-    public Request_create_question_dto(String content) {
-        this.content = content;
+    public Request_create_question_dto(String question) {
+        this.question = question;
     }
 
     public QuestionDomain toEntity(){
         return QuestionDomain.builder()
-                    .content(content)
+                    .question(question)
                     .build();
     }
 }

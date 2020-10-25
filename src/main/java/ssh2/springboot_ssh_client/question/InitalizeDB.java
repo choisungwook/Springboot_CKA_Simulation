@@ -40,7 +40,8 @@ public class InitalizeDB {
      * @return
      */
     private static QuestionDomain Create_question1(){
-        QuestionDomain new_question = Create_question("Create deployment");
+        String question = "pod를 생성하세요<br>pod 이름: test<br>image:nginx";
+        QuestionDomain new_question = Create_question(question);
 
         return new_question;
     }
@@ -57,12 +58,12 @@ public class InitalizeDB {
 
     /***
      * 문제 초기화
-     * @param content
+     * @param
      * @return
      */
-    private static QuestionDomain Create_question(String content){
+    private static QuestionDomain Create_question(String question){
         QuestionDomain new_question = QuestionDomain.builder()
-                .content(content)
+                .question(question)
                 .build();
 
         return new_question;
