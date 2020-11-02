@@ -18,3 +18,8 @@ CKA시험 연습 시스템
 ```sh
 java -jar cka_version1.jar
 ```
+
+<br>
+
+# 4. 아키텍처
+![아키텍처](documentation/architecture.png)
