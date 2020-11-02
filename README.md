@@ -1,5 +1,6 @@
 # 1. 개요
 CKA시험 연습 시스템
+![실행화면](documentation/running.png)
 
 <br>
 
@@ -9,6 +10,8 @@ CKA시험 연습 시스템
 ## 2.2 마스터노드 ssh서버 리스닝
 ## 2.3 마스터노드 웹소켓서버 실행
 * 서버 스크립트: https://github.com/choisungwook/web_terminal.git
+
+<br>
 
 # 3. 실행
 * Release에서  jar파일 다운로드 후 실행
